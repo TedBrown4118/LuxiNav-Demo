@@ -824,7 +824,7 @@
           </div>
         </div>
         <div class="keynote">
-          <b>叙事主线：</b>仿真环境先验证长指令可泛化；真实场景再证明纯视觉具身控制能落地；建图模块补上稳定定位和空间表达；最后的 VLFM 探索展示地图与模型结合后的语义导航方向。
+          <b>叙事主线：</b>仿真环境先验证长指令可泛化；真实场景再证明纯视觉具身控制能落地；建图模块补上稳定定位和空间表达；最后的 Luxi-Nav2.0 探索展示地图与模型结合后的语义导航方向。
         </div>
       </div>
     </section>
@@ -859,7 +859,7 @@
           <div class="eyebrow">Stage 01 · simulation validation</div>
           <h2>仿真环境：验证长指令和跨区域导航</h2>
           <p>
-            第一阶段先在 Habitat / NAVILA 仿真环境里验证路线理解。仿真的目的，是在可控环境中系统性测试长指令、跨房间、跨区域导航，再把稳定能力迁移到真实机器人上。
+            第一阶段先在 Habitat / Luxi-Nav1.0 仿真环境里验证路线理解。仿真的目的，是在可控环境中系统性测试长指令、跨房间、跨区域导航，再把稳定能力迁移到真实机器人上。
           </p>
         </div>
         <div class="capband">
@@ -868,20 +868,20 @@
         </div>
         <div class="gallery">
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/bedroom-corridor-dining-living-chair-door.gif" alt="NAVILA long instruction navigation from bedroom to living room near chair and sliding door"></div>
-            <figcaption class="cap long"><span class="n">从卧室出门到走廊，转弯进入餐厅区域，经过餐桌到客厅，朝电视方向走，最后停在椅子和通向室外的滑门附近</span><span class="e">NAVILA · bedroom → corridor → dining area → living room</span></figcaption>
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/bedroom-corridor-dining-living-chair-door.gif" alt="Luxi-Nav1.0 long instruction navigation from bedroom to living room near chair and sliding door"></div>
+            <figcaption class="cap long"><span class="n">从卧室出门到走廊，转弯进入餐厅区域，经过餐桌到客厅，朝电视方向走，最后停在椅子和通向室外的滑门附近</span><span class="e">Luxi-Nav1.0 · bedroom → corridor → dining area → living room</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/room-left-dining-living-coffee-table.gif" alt="NAVILA navigation from current room through dining room into living room stopping near coffee table"></div>
-            <figcaption class="cap long"><span class="n">从当前房间出去，左转，经过餐厅进入客厅，停在咖啡桌旁边</span><span class="e">NAVILA · room exit → left turn → dining room → coffee table</span></figcaption>
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/room-left-dining-living-coffee-table.gif" alt="Luxi-Nav1.0 navigation from current room through dining room into living room stopping near coffee table"></div>
+            <figcaption class="cap long"><span class="n">从当前房间出去，左转，经过餐厅进入客厅，停在咖啡桌旁边</span><span class="e">Luxi-Nav1.0 · room exit → left turn → dining room → coffee table</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/table-corner-kitchen-sink-shelf.gif" alt="NAVILA long instruction navigation to table corner and into kitchen near small sink and shelf"></div>
-            <figcaption class="cap long"><span class="n">先到桌子的左远角，再从右侧门口进入厨房；炉灶在右边、冰箱在左边，继续往前走到左侧小水槽、右侧架子附近停下</span><span class="e">NAVILA · table corner → kitchen → sink and shelf</span></figcaption>
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/table-corner-kitchen-sink-shelf.gif" alt="Luxi-Nav1.0 long instruction navigation to table corner and into kitchen near small sink and shelf"></div>
+            <figcaption class="cap long"><span class="n">先到桌子的左远角，再从右侧门口进入厨房；炉灶在右边、冰箱在左边，继续往前走到左侧小水槽、右侧架子附近停下</span><span class="e">Luxi-Nav1.0 · table corner → kitchen → sink and shelf</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/dining-table-kitchen-stove-sink.gif" alt="NAVILA navigation through dining table and kitchen stopping near sink"></div>
-            <figcaption class="cap long"><span class="n">经过餐桌，继续往厨房走，穿过厨房，经过台面和炉灶，最后停在水槽附近</span><span class="e">NAVILA · dining table → kitchen → counter and stove → sink</span></figcaption>
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/dining-table-kitchen-stove-sink.gif" alt="Luxi-Nav1.0 navigation through dining table and kitchen stopping near sink"></div>
+            <figcaption class="cap long"><span class="n">经过餐桌，继续往厨房走，穿过厨房，经过台面和炉灶，最后停在水槽附近</span><span class="e">Luxi-Nav1.0 · dining table → kitchen → counter and stove → sink</span></figcaption>
           </figure>
         </div>
       </div>
@@ -1005,7 +1005,7 @@
           <div class="eyebrow">Research exploration · map + model</div>
           <h2>研究探索：把建图结果交给模型做语义决策</h2>
           <p>
-            最后一阶段面向未来：地图不只是给传统路径规划使用，也可以成为视觉语言模型的空间上下文。VLFM 展示的是在地图与视觉共同约束下，
+            最后一阶段面向未来：地图不只是给传统路径规划使用，也可以成为视觉语言模型的空间上下文。Luxi-Nav2.0 展示的是在地图与视觉共同约束下，
             模型如何围绕椅子、马桶、床等语义目标选择探索方向，并把“下一步去哪儿看”转化成可执行的导航目标。
           </p>
         </div>
@@ -1016,27 +1016,27 @@
         </div>
         <div class="gallery">
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_163681ff-845b-4997-b3fe-66f1d91b030g.gif" alt="VLFM finding a chair in an unseen Habitat environment"></div>
-            <figcaption class="cap"><span class="n">VLFM · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_163681ff-845b-4997-b3fe-66f1d91b030g.gif" alt="Luxi-Nav2.0 finding a chair in an unseen Habitat environment"></div>
+            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_91781947-3dd2-496b-a719-eb73affbd1fg.gif" alt="VLFM finding a toilet with vision-language navigation"></div>
-            <figcaption class="cap"><span class="n">VLFM · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_91781947-3dd2-496b-a719-eb73affbd1fg.gif" alt="Luxi-Nav2.0 finding a toilet with vision-language navigation"></div>
+            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_9c5340e7-ee00-4e8b-b24e-01ec32b5c31g.gif" alt="VLFM finding a toilet in a novel scene"></div>
-            <figcaption class="cap"><span class="n">VLFM · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_9c5340e7-ee00-4e8b-b24e-01ec32b5c31g.gif" alt="Luxi-Nav2.0 finding a toilet in a novel scene"></div>
+            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_f917c1c0-c49f-45c2-87c3-d0fa0c6fddeg.gif" alt="VLFM finding a bed in a novel scene"></div>
-            <figcaption class="cap"><span class="n">VLFM · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_f917c1c0-c49f-45c2-87c3-d0fa0c6fddeg.gif" alt="Luxi-Nav2.0 finding a bed in a novel scene"></div>
+            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
           </figure>
         </div>
         <div class="desc span2" style="max-width:900px;margin:24px auto 0">
           <div class="body">
             <h4><span class="cap-k unseen">Takeaway</span> 建图为空间底座，模型做语义决策</h4>
             <p>
-              VLFM 方向强调在未知布局中利用地图记录已探索区域和可达边界，再让视觉语言模型根据目标语义判断哪些区域更值得前往。
+              Luxi-Nav2.0 方向强调在未知布局中利用地图记录已探索区域和可达边界，再让视觉语言模型根据目标语义判断哪些区域更值得前往。
               它不是替代真实机器人导航，而是展示建图模块未来接入模型决策后的研究空间：底层负责稳定定位与路径执行，上层负责语义理解与探索策略。
             </p>
           </div>
@@ -1046,7 +1046,6 @@
 
     <footer>
       <div class="wrap">
-        <p>页面布局参考科研项目页结构：hero teaser、能力说明条、两列成果图、简短图注和结论块。色调沿用当前浅绿灰视觉系统。</p>
         <div class="fin">Local demo page · <code>index.html</code></div>
       </div>
     </footer>
