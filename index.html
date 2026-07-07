@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>具身智能成果展示</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f7f4;
+        --bg-alt: #eef2ec;
+        --ink: #17211d;
+        --ink-soft: #33423d;
+        --muted: #60706a;
+        --faint: #8a9892;
+        --line: #d9dfd8;
+        --line-strong: #c7d0c8;
+        --panel: #ffffff;
+        --accent: #1f7a68;
+        --accent-bg: #e6f1ed;
+        --accent-2: #c4573a;
+        --accent-2-bg: #faebe6;
+        --accent-3: #315f9b;
+        --accent-3-bg: #e8eef7;
+        --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Songti SC", serif;
+        --sans: "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        --mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink-soft);
+        font-family: var(--sans);
+        font-size: 17px;
+        line-height: 1.72;
+        letter-spacing: 0;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        color: var(--ink);
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      .eyebrow {
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .brandmark {
+        position: fixed;
+        top: 18px;
+        left: 22px;
+        z-index: 40;
+        display: inline-flex;
+        align-items: center;
+        padding: 0;
+      }
+
+      .brandmark:hover {
+        text-decoration: none;
+      }
+
+      .brandmark img {
+        display: block;
+        width: 210px;
+        height: auto;
+      }
+
+      header {
+        border-bottom: 1px solid var(--line);
+        padding: 92px 0 46px;
+        text-align: center;
+      }
+
+      .logo {
+        width: 54px;
+        height: 54px;
+        object-fit: contain;
+        margin-bottom: 18px;
+      }
+
+      header .eyebrow {
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        max-width: 15ch;
+        margin: 0 auto;
+        font-family: var(--serif);
+        font-size: clamp(34px, 5vw, 58px);
+        font-weight: 650;
+      }
+
+      h1 em {
+        color: var(--accent);
+        font-style: italic;
+      }
+
+      .tagline {
+        max-width: 680px;
+        margin: 24px auto 0;
+        color: var(--ink-soft);
+        font-size: clamp(17px, 2.2vw, 20px);
+        line-height: 1.62;
+      }
+
+      .byline {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .byline b {
+        color: var(--ink);
+        font-weight: 650;
+      }
+
+      .links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .lnk {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+        padding: 9px 18px;
+        font-size: 14.5px;
+        font-weight: 560;
+        transition: 0.15s ease;
+      }
+
+      .lnk:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .lnk.solid {
+        border-color: var(--ink);
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .lnk.solid:hover {
+        border-color: #000;
+        background: #000;
+        color: #fff;
+      }
+
+      .demo-tag {
+        display: inline-block;
+        margin-top: 22px;
+        border: 1px solid #c8ded7;
+        border-radius: 999px;
+        background: var(--accent-bg);
+        color: var(--accent);
+        padding: 4px 13px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+      }
+
+      .teaser {
+        max-width: 880px;
+        margin: 42px auto 0;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      .teaser img,
+      .fig img,
+      .fig video {
+        display: block;
+        width: 100%;
+      }
+
+      .teaser img {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+
+      figcaption {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      section + section {
+        border-top: 1px solid var(--line);
+      }
+
+      .alt {
+        background: var(--bg-alt);
+      }
+
+      .head {
+        max-width: 720px;
+        margin: 0 auto 40px;
+        text-align: center;
+      }
+
+      .head .eyebrow {
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-family: var(--serif);
+        font-size: clamp(25px, 3.2vw, 34px);
+        font-weight: 650;
+      }
+
+      .head p {
+        margin: 14px auto 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 880px;
+        margin: 0 auto;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        padding: 24px;
+      }
+
+      .card.alt-card {
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .card.is-new {
+        border-color: #c8ded7;
+      }
+
+      .tag {
+        display: inline-block;
+        border: 1px solid var(--line-strong);
+        border-radius: 5px;
+        color: var(--muted);
+        padding: 3px 9px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+      }
+
+      .is-new .tag {
+        border-color: #c8ded7;
+        background: var(--accent-bg);
+        color: var(--accent);
+      }
+
+      .card h3 {
+        margin: 14px 0 8px;
+        font-size: 16px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14.5px;
+        line-height: 1.62;
+      }
+
+      .keynote {
+        max-width: 780px;
+        margin: 28px auto 0;
+        border-left: 3px solid var(--accent);
+        border-radius: 0 8px 8px 0;
+        background: var(--accent-bg);
+        color: var(--ink-soft);
+        padding: 18px 22px;
+        font-size: 15px;
+      }
+
+      .keynote b {
+        color: var(--ink);
+      }
+
+      .capband {
+        max-width: 800px;
+        margin: 0 auto 30px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+        padding: 14px 22px;
+        text-align: center;
+      }
+
+      .cap-lead {
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 650;
+      }
+
+      .cap-k {
+        display: inline-block;
+        margin-right: 11px;
+        border: 1px solid #c8ded7;
+        border-radius: 5px;
+        background: var(--accent-bg);
+        color: var(--accent);
+        padding: 2px 9px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        font-weight: 650;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        vertical-align: 1.5px;
+      }
+
+      .cap-k.sim {
+        border-color: #d7dfef;
+        background: var(--accent-3-bg);
+        color: var(--accent-3);
+      }
+
+      .cap-k.unseen {
+        border-color: #efd4c8;
+        background: var(--accent-2-bg);
+        color: var(--accent-2);
+      }
+
+      .cap-io {
+        margin-top: 9px;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 12.5px;
+        line-height: 1.55;
+      }
+
+      .cap-io b {
+        color: var(--ink-soft);
+        font-weight: 650;
+      }
+
+      .arr {
+        margin: 0 7px;
+        color: var(--faint);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .real-gallery {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+        gap: 18px;
+        max-width: 900px;
+        margin: 0 auto;
+        align-items: stretch;
+      }
+
+      .real-gallery .feature {
+        min-height: 0;
+        transform: translateX(100px);
+      }
+
+      .real-gallery .feature .media {
+        aspect-ratio: 9 / 16;
+        height: calc(100% - 58px);
+        min-height: 620px;
+      }
+
+      .real-gallery .stack {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .real-gallery .stack .media {
+        aspect-ratio: 16 / 9;
+      }
+
+      .fig {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      .media {
+        aspect-ratio: 16 / 9;
+        background: #18211e;
+      }
+
+      .media.wide {
+        aspect-ratio: 32 / 7;
+        background: #f7f8f4;
+      }
+
+      .media.navila {
+        aspect-ratio: 960 / 293;
+        background: #f7f8f4;
+      }
+
+      .media.contain {
+        background: #f7f8f4;
+      }
+
+      .media img,
+      .media video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .media.wide img {
+        object-fit: contain;
+      }
+
+      .media.navila img {
+        object-fit: contain;
+      }
+
+      .media.contain img {
+        object-fit: contain;
+      }
+
+      .fig .cap {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        border-top: 1px solid var(--line);
+        margin: 0;
+        padding: 12px 16px;
+        text-align: left;
+      }
+
+      .fig .cap .n {
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .fig .cap .e {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+        text-align: right;
+      }
+
+      .fig .cap.long {
+        display: block;
+      }
+
+      .fig .cap.long .n,
+      .fig .cap.long .e {
+        display: block;
+        text-align: left;
+      }
+
+      .fig .cap.long .e {
+        margin-top: 6px;
+      }
+
+      .span2 {
+        grid-column: 1 / -1;
+      }
+
+      .desc {
+        border: 1px solid #c8ded7;
+        border-radius: 12px;
+        background: var(--accent-bg);
+        overflow: hidden;
+      }
+
+      .desc .body {
+        padding: 18px 22px;
+      }
+
+      .desc h4 {
+        color: var(--accent);
+        font-size: 15px;
+      }
+
+      .desc p {
+        margin: 7px 0 0;
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        max-width: 880px;
+        margin: 34px auto 0;
+      }
+
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        padding: 20px 12px;
+        text-align: center;
+      }
+
+      .stat .v {
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 30px;
+        font-weight: 650;
+      }
+
+      .stat .k {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.42;
+      }
+
+      .storyline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        max-width: 900px;
+        margin: 34px auto 0;
+      }
+
+      .story {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        padding: 18px;
+        text-align: left;
+      }
+
+      .story b {
+        display: block;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .story strong {
+        display: block;
+        margin-top: 9px;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .story span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        max-width: 900px;
+        margin: 0 auto 30px;
+      }
+
+      .step {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        padding: 18px;
+      }
+
+      .step .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        background: var(--accent-bg);
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .step h3 {
+        margin-top: 12px;
+        font-size: 15px;
+      }
+
+      .step p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+
+      .mapping-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        align-items: stretch;
+      }
+
+      .mapping-grid .fig:first-child {
+        grid-row: span 2;
+      }
+
+      .mapping-grid .media {
+        height: 100%;
+        aspect-ratio: auto;
+        min-height: 260px;
+        background: #f7f8f4;
+      }
+
+      .mapping-grid .media img {
+        object-fit: cover;
+      }
+
+      .format-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        max-width: 760px;
+        margin: 22px auto 0;
+      }
+
+      .format-row span {
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--muted);
+        padding: 5px 12px;
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 46px 0 64px;
+        text-align: center;
+      }
+
+      footer p {
+        max-width: 680px;
+        margin: 0 auto 10px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      footer .fin {
+        color: var(--faint);
+        font-size: 13px;
+      }
+
+      @media (max-width: 740px) {
+        .brandmark {
+          position: absolute;
+        }
+
+        .brandmark img {
+          width: 168px;
+        }
+
+        header {
+          padding-top: 86px;
+        }
+
+        .two,
+        .gallery,
+        .real-gallery,
+        .stats,
+        .storyline,
+        .timeline,
+        .mapping-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .mapping-grid .fig:first-child {
+          grid-row: auto;
+        }
+
+        .real-gallery .feature .media {
+          height: auto;
+          min-height: 0;
+        }
+
+        .real-gallery .feature {
+          transform: none;
+        }
+
+        .real-gallery .stack {
+          grid-template-rows: none;
+        }
+
+        .fig .cap {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .fig .cap .e {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="brandmark" aria-label="陆兮科技">
+      <img src="web-assets/logo-luxitech-transparent.png" alt="陆兮科技 LuxiTech">
+    </a>
+
+    <header>
+      <div class="wrap">
+        <div class="eyebrow">Embodied AI · Navigation Stack</div>
+        <h1>从纯视觉导航到 <em>建图融合</em> 的具身智能路线</h1>
+        <p class="tagline">
+          我们的导航能力不是一次性做出来的：先在仿真环境里验证长指令和跨区域路线理解；再把纯视觉方案放到真实机器人上验证落地；
+          随后补上建图与定位模块，给机器人稳定的空间底座；最后探索“地图 + 模型”的语义导航闭环。
+        </p>
+        <div class="byline"><b>Go2 Embodied Agent</b> · Customer Demo</div>
+        <div class="links">
+          <a class="lnk solid" href="#sim">View demos</a>
+          <a class="lnk" href="#method">System overview</a>
+          <a class="lnk" href="#mapping">Mapping</a>
+          <a class="lnk" href="#generalization">Navigation</a>
+        </div>
+        <div class="demo-tag">A staged roadmap: vision-only → simulation → mapping → map-aware model navigation</div>
+
+        <div class="teaser">
+          <figure>
+            <img src="web-assets/gifs/real-third-view.gif" alt="Go2 robot walking to the end of a corridor and stopping before a fire extinguisher">
+            <figcaption>
+              第一阶段：在没有显式地图参与的情况下，机器人仅依靠语言指令和视觉观测完成真实场景中的连续导航与目标停止。
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <section id="why">
+      <div class="wrap">
+        <div class="head">
+          <div class="eyebrow">Positioning</div>
+          <h2>故事从纯视觉导航开始</h2>
+          <p>
+            导航是具身智能落地的基础能力。我们先验证最直接也最困难的一步：不依赖预置地图，让机器人仅凭第一视角视觉和自然语言指令在真实空间中行动。
+          </p>
+        </div>
+        <div class="two">
+          <div class="card alt-card">
+            <span class="tag">stage 1</span>
+            <h3>纯视觉方案</h3>
+            <p>
+              输入是任务文本和相机画面，模型直接判断下一步动作。它证明了系统可以从语言到行动闭环，但空间记忆和全局规划能力仍然有限。
+            </p>
+          </div>
+          <div class="card is-new">
+            <span class="tag">stage 2+</span>
+            <h3>逐步补齐空间能力</h3>
+            <p>
+              因此我们继续引入仿真长指令验证、建图定位模块，以及地图与视觉语言模型的结合，让导航从“看见就走”走向“理解空间后再走”。
+            </p>
+          </div>
+        </div>
+        <div class="keynote">
+          <b>叙事主线：</b>仿真环境先验证长指令可泛化；真实场景再证明纯视觉具身控制能落地；建图模块补上稳定定位和空间表达；最后的 VLFM 探索展示地图与模型结合后的语义导航方向。
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="alt">
+      <div class="wrap">
+        <div class="head">
+          <div class="eyebrow">Roadmap</div>
+          <h2>一条逐步增强的导航路线</h2>
+          <p>
+            每个章节对应一个明确目的：先在仿真里验证长指令路线理解，再上真实机器人证明纯视觉控制落地，然后用建图模块补齐空间底座，最后探索地图与模型融合。
+          </p>
+        </div>
+        <div class="storyline">
+          <div class="story"><b>Stage 01</b><strong>仿真长指令验证</strong><span>目的：在可控环境里验证跨房间、跨区域的路线理解。</span></div>
+          <div class="story"><b>Stage 02</b><strong>纯视觉真实控制</strong><span>目的：证明机器人只靠语言和视觉也能完成连续任务。</span></div>
+          <div class="story"><b>Stage 03</b><strong>建图与定位模块</strong><span>目的：为导航提供稳定地图、位姿和路径规划接口。</span></div>
+          <div class="story"><b>Stage 04</b><strong>地图 + 模型探索</strong><span>目的：让模型在地图底座上做语义目标搜索和探索决策。</span></div>
+        </div>
+        <div class="keynote">
+          <b>Evolution:</b> long-instruction simulation
+          <span class="arr">→</span> real-world vision-only control
+          <span class="arr">→</span> mapping and localization
+          <span class="arr">→</span> map-aware vision-language navigation.
+        </div>
+      </div>
+    </section>
+
+    <section id="sim">
+      <div class="wrap">
+        <div class="head">
+          <div class="eyebrow">Stage 01 · simulation validation</div>
+          <h2>仿真环境：验证长指令和跨区域导航</h2>
+          <p>
+            第一阶段先在 Habitat / NAVILA 仿真环境里验证路线理解。仿真的目的，是在可控环境中系统性测试长指令、跨房间、跨区域导航，再把稳定能力迁移到真实机器人上。
+          </p>
+        </div>
+        <div class="capband">
+          <div class="cap-lead"><span class="cap-k sim">Capability</span> Long-instruction navigation in simulation</div>
+          <div class="cap-io"><b>in:</b> multi-step natural language route <span class="arr">→</span> <b>out:</b> room-to-room navigation, landmark following, target stopping</div>
+        </div>
+        <div class="gallery">
+          <figure class="fig">
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/bedroom-corridor-dining-living-chair-door.gif" alt="NAVILA long instruction navigation from bedroom to living room near chair and sliding door"></div>
+            <figcaption class="cap long"><span class="n">从卧室出门到走廊，转弯进入餐厅区域，经过餐桌到客厅，朝电视方向走，最后停在椅子和通向室外的滑门附近</span><span class="e">NAVILA · bedroom → corridor → dining area → living room</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/room-left-dining-living-coffee-table.gif" alt="NAVILA navigation from current room through dining room into living room stopping near coffee table"></div>
+            <figcaption class="cap long"><span class="n">从当前房间出去，左转，经过餐厅进入客厅，停在咖啡桌旁边</span><span class="e">NAVILA · room exit → left turn → dining room → coffee table</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/table-corner-kitchen-sink-shelf.gif" alt="NAVILA long instruction navigation to table corner and into kitchen near small sink and shelf"></div>
+            <figcaption class="cap long"><span class="n">先到桌子的左远角，再从右侧门口进入厨房；炉灶在右边、冰箱在左边，继续往前走到左侧小水槽、右侧架子附近停下</span><span class="e">NAVILA · table corner → kitchen → sink and shelf</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media navila"><img loading="lazy" src="web-assets/navila/dining-table-kitchen-stove-sink.gif" alt="NAVILA navigation through dining table and kitchen stopping near sink"></div>
+            <figcaption class="cap long"><span class="n">经过餐桌，继续往厨房走，穿过厨房，经过台面和炉灶，最后停在水槽附近</span><span class="e">NAVILA · dining table → kitchen → counter and stove → sink</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="demos" class="alt">
+      <div class="wrap">
+        <div class="head">
+          <div class="eyebrow">Stage 02 · vision-only real robot</div>
+          <h2>真实场景：先证明纯视觉方案能跑起来</h2>
+          <p>
+            这一阶段的目的，是验证模型在真实机器人上能把自然语言转成连续动作。第一人称展示机器人“看见什么”，第三人称展示任务是否真正完成。
+          </p>
+        </div>
+        <div class="capband">
+          <div class="cap-lead"><span class="cap-k">Capability</span> Long-horizon instruction following in real environments</div>
+          <div class="cap-io"><b>in:</b> natural language + onboard camera <span class="arr">→</span> <b>out:</b> continuous navigation, object search, turning, stopping</div>
+        </div>
+        <div class="real-gallery">
+          <figure class="fig feature">
+            <div class="media contain"><img loading="lazy" src="web-assets/gifs/real-third-person-trashbin-right-panda.gif" alt="Third-person view: move forward to find the panda, then turn left to find the trash bin"></div>
+            <figcaption class="cap"><span class="n">第三人称 · 向前走找到熊猫再向左找到垃圾桶</span><span class="e">real-3 · 10s compressed GIF</span></figcaption>
+          </figure>
+          <div class="stack">
+            <figure class="fig">
+              <div class="media"><img loading="lazy" src="web-assets/gifs/real-first-view.gif" alt="Go2 finding a trash bin, turning right, and searching for a chair"></div>
+              <figcaption class="cap"><span class="n">第一人称 · 找到垃圾桶后右转找椅子</span><span class="e">real-1 · onboard view</span></figcaption>
+            </figure>
+            <figure class="fig">
+              <div class="media"><img loading="lazy" src="web-assets/gifs/real-third-view.gif" alt="Go2 walking to the end of the corridor and stopping before the fire extinguisher"></div>
+              <figcaption class="cap"><span class="n">真实任务 · 走廊尽头灭火器前停止</span><span class="e">real-2 · corridor navigation</span></figcaption>
+            </figure>
+            <figure class="fig">
+              <div class="media contain"><img loading="lazy" src="web-assets/gifs/real-third-person-trashbin-left-chair.gif" alt="Third-person view: move forward to find the trash bin, then turn left to find the chair"></div>
+              <figcaption class="cap"><span class="n">第三人称 · 向前找到垃圾桶然后向左找到椅子</span><span class="e">real-4 · 10s compressed GIF</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mapping">
+      <div class="wrap">
+        <div class="head">
+          <div class="eyebrow">Stage 03 · mapping foundation</div>
+          <h2>建图模块：补上长期导航需要的空间底座</h2>
+          <p>
+            纯视觉方案可以启动闭环，但长期、稳定、可复用的导航需要地图和定位。因此我们加入“陆图”建图模块，为机器狗、无人机、轮式机器人等载体提供稠密 3D 地图与实时定位。
+          </p>
+        </div>
+
+        <div class="capband">
+          <div class="cap-lead"><span class="cap-k">Capability</span> Dense mapping, map matching, and robot localization</div>
+          <div class="cap-io"><b>in:</b> LiDAR / RGB observations <span class="arr">→</span> <b>out:</b> PCD map, GLB / OctoMap / OccupancyGrid, robot pose, navigation-ready spatial context</div>
+        </div>
+
+        <div class="timeline">
+          <div class="step">
+            <span class="num">01</span>
+            <h3>3D 地图创建</h3>
+            <p>已完成公司环境的雷达点云 PCD 建图，能够形成可用于定位与导航的稠密空间表示。</p>
+          </div>
+          <div class="step">
+            <span class="num">02</span>
+            <h3>地图格式转换</h3>
+            <p>建图结果可转换为 GLB、OctoMap 体素地图和 SLAM 常用 OccupancyGrid 栅格地图。</p>
+          </div>
+          <div class="step">
+            <span class="num">03</span>
+            <h3>自动定位匹配</h3>
+            <p>定位库可在 3D 点云地图或 2D 栅格地图中识别机器人位置与朝向，并输出给上层模型。</p>
+          </div>
+          <div class="step">
+            <span class="num">04</span>
+            <h3>RGB 3D 重建</h3>
+            <p>支持基于 RGB 场景进行三维重建，保留物体相对位置关系和三维形状信息。</p>
+          </div>
+        </div>
+
+        <div class="mapping-grid">
+          <figure class="fig">
+            <div class="media"><img loading="lazy" src="web-assets/mapping/lidar-pcd-map.png" alt="Dense LiDAR PCD map of the company environment"></div>
+            <figcaption class="cap"><span class="n">稠密 3D 点云建图</span><span class="e">PCD · company map</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media"><img loading="lazy" src="web-assets/mapping/localization-map.png" alt="Robot localization result in a 2D map"></div>
+            <figcaption class="cap"><span class="n">地图自动定位匹配</span><span class="e">pose · heading</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media"><img loading="lazy" src="web-assets/mapping/map-pose-overlay.png" alt="Robot pose and corridor position overlaid on the map"></div>
+            <figcaption class="cap"><span class="n">机器人位姿与方向识别</span><span class="e">map pose overlay</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media"><img loading="lazy" src="web-assets/mapping/rgb-reconstruction-scene.png" alt="RGB scene used for 3D reconstruction"></div>
+            <figcaption class="cap"><span class="n">RGB 3D 重建输入场景</span><span class="e">RGB scene</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media"><img loading="lazy" src="web-assets/mapping/rgb-3d-reconstruction.png" alt="RGB 3D reconstruction preserving object positions and shapes"></div>
+            <figcaption class="cap"><span class="n">RGB 重建结果</span><span class="e">relative pose · 3D shape</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="format-row" aria-label="Supported map formats">
+          <span>PCD</span>
+          <span>GLB</span>
+          <span>OctoMap</span>
+          <span>OccupancyGrid</span>
+          <span>2D / 3D localization</span>
+          <span>path planning ready</span>
+        </div>
+
+        <div class="keynote">
+          <b>下一步：</b>拓展导航功能，接入路径规划、自主导航、避障、局部/全局路径规划等能力；与机器人底层运动控制分层，为机器狗、小车、无人机等不同载体提供可复用的导航模块。
+        </div>
+      </div>
+    </section>
+
+    <section id="generalization" class="alt">
+      <div class="wrap">
+        <div class="head">
+          <div class="eyebrow">Research exploration · map + model</div>
+          <h2>研究探索：把建图结果交给模型做语义决策</h2>
+          <p>
+            最后一阶段面向未来：地图不只是给传统路径规划使用，也可以成为视觉语言模型的空间上下文。VLFM 展示的是在地图与视觉共同约束下，
+            模型如何围绕椅子、马桶、床等语义目标选择探索方向，并把“下一步去哪儿看”转化成可执行的导航目标。
+          </p>
+        </div>
+        <div class="capband">
+          <div class="cap-lead"><span class="cap-k unseen">Exploration</span> Map-aware vision-language frontier navigation</div>
+          <div class="cap-io"><b>in:</b> spatial map + target object + visual observation <span class="arr">→</span> <b>out:</b> semantic frontier selection, object seeking, navigation target proposal</div>
+          <div class="cap-io"><b>loop:</b> update explored map <span class="arr">→</span> score candidate frontiers with VLM <span class="arr">→</span> move toward the most promising area</div>
+        </div>
+        <div class="gallery">
+          <figure class="fig">
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_163681ff-845b-4997-b3fe-66f1d91b030g.gif" alt="VLFM finding a chair in an unseen Habitat environment"></div>
+            <figcaption class="cap"><span class="n">VLFM · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_91781947-3dd2-496b-a719-eb73affbd1fg.gif" alt="VLFM finding a toilet with vision-language navigation"></div>
+            <figcaption class="cap"><span class="n">VLFM · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_9c5340e7-ee00-4e8b-b24e-01ec32b5c31g.gif" alt="VLFM finding a toilet in a novel scene"></div>
+            <figcaption class="cap"><span class="n">VLFM · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+          </figure>
+          <figure class="fig">
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_f917c1c0-c49f-45c2-87c3-d0fa0c6fddeg.gif" alt="VLFM finding a bed in a novel scene"></div>
+            <figcaption class="cap"><span class="n">VLFM · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
+          </figure>
+        </div>
+        <div class="desc span2" style="max-width:900px;margin:24px auto 0">
+          <div class="body">
+            <h4><span class="cap-k unseen">Takeaway</span> 建图为空间底座，模型做语义决策</h4>
+            <p>
+              VLFM 方向强调在未知布局中利用地图记录已探索区域和可达边界，再让视觉语言模型根据目标语义判断哪些区域更值得前往。
+              它不是替代真实机器人导航，而是展示建图模块未来接入模型决策后的研究空间：底层负责稳定定位与路径执行，上层负责语义理解与探索策略。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <p>页面布局参考科研项目页结构：hero teaser、能力说明条、两列成果图、简短图注和结论块。色调沿用当前浅绿灰视觉系统。</p>
+        <div class="fin">Local demo page · <code>index.html</code></div>
+      </div>
+    </footer>
+  </body>
+</html>
