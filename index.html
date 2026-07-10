@@ -696,6 +696,52 @@
         font-size: 12px;
       }
 
+      .demo-split {
+        display: grid;
+        grid-template-columns: minmax(240px, 0.55fr) minmax(0, 1fr);
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto 30px;
+        align-items: stretch;
+      }
+
+      .demo-split .media {
+        aspect-ratio: 9 / 16;
+        background: #101614;
+      }
+
+      .demo-split .media video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .demo-note {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        padding: 24px;
+      }
+
+      .demo-note h3 {
+        font-size: 18px;
+      }
+
+      .demo-note p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 14.5px;
+        line-height: 1.65;
+      }
+
+      .demo-note ul {
+        margin: 16px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
       footer {
         border-top: 1px solid var(--line);
         padding: 46px 0 64px;
@@ -733,6 +779,7 @@
         .stats,
         .storyline,
         .timeline,
+        .demo-split,
         .mapping-grid {
           grid-template-columns: 1fr;
         }
@@ -936,6 +983,26 @@
         <div class="capband">
           <div class="cap-lead"><span class="cap-k">Capability</span> Dense mapping, map matching, and robot localization</div>
           <div class="cap-io"><b>in:</b> LiDAR / RGB observations <span class="arr">→</span> <b>out:</b> PCD map, GLB / OctoMap / OccupancyGrid, robot pose, navigation-ready spatial context</div>
+        </div>
+
+        <div class="demo-split">
+          <figure class="fig">
+            <div class="media">
+              <video src="web-assets/videos/lucid-atlas-module-demo.mp4" poster="web-assets/posters/lucid-atlas-module-demo.jpg" controls muted loop playsinline preload="metadata"></video>
+            </div>
+            <figcaption class="cap"><span class="n">陆图系统 · Go2 模块功能演示</span><span class="e">Lucid Atlas · 2m20s</span></figcaption>
+          </figure>
+          <div class="demo-note">
+            <h3>把地图、定位和机器人视角放进同一个演示闭环</h3>
+            <p>
+              这段视频展示陆图系统在 Go2 实机上的模块功能：上方呈现实时构建/加载的空间地图，下方同步展示机器人在真实环境中的运动视角，用来说明地图结果如何服务于后续定位、路径规划和模型决策。
+            </p>
+            <ul>
+              <li>展示点云地图与机器人现场画面的同步关系。</li>
+              <li>验证建图模块可以为机器人提供可复用的空间表达。</li>
+              <li>为后续 Luxi-Nav2.0 的“地图 + 模型”语义导航提供底层输入。</li>
+            </ul>
+          </div>
         </div>
 
         <div class="timeline">
