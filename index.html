@@ -1422,36 +1422,37 @@
         </div>
 
         <div class="research-intro">
-          <div class="eyebrow">Earlier research evidence · unseen environments</div>
-          <h3>陌生环境寻物：先验证地图驱动的语义探索</h3>
+          <div class="eyebrow">Map-enabled task expansion · minimal prompt</div>
+          <h3>从“照着路线走”到“只告诉它要找什么”</h3>
           <p>
-            在完整技术闭环形成之前，我们先用陌生 Habitat 环境验证一个关键问题：机器人能否一边更新已探索地图，一边根据“椅子、马桶、床”等目标语义选择更值得前往的区域。
+            加入陆图后，任务不再必须由人类描述完整路线。面对“找椅子、找马桶、找床”这类短提示，系统可以在陌生 Habitat 环境中持续记录已探索区域，
+            将视觉目标与地图位置关联；目标尚未出现时主动选择更值得搜索的方向，发现目标后再规划接近路线并完成停止。
           </p>
         </div>
         <div class="gallery">
           <figure class="fig">
             <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_163681ff-845b-4997-b3fe-66f1d91b030g.gif" alt="Finding a chair in an unseen Habitat environment"></div>
-            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
           </figure>
           <figure class="fig">
             <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_91781947-3dd2-496b-a719-eb73affbd1fg.gif" alt="Finding a toilet with semantic map navigation"></div>
-            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
           </figure>
           <figure class="fig">
             <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_9c5340e7-ee00-4e8b-b24e-01ec32b5c31g.gif" alt="Finding a toilet in a novel scene"></div>
-            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
           </figure>
           <figure class="fig">
             <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_f917c1c0-c49f-45c2-87c3-d0fa0c6fddeg.gif" alt="Finding a bed in a novel scene"></div>
-            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
           </figure>
         </div>
         <div class="desc span2" style="max-width:900px;margin:24px auto 0">
           <div class="body">
-            <h4><span class="cap-k unseen">Takeaway</span> 早期寻物探索成为 LuxiNav 的语义决策能力来源</h4>
+            <h4><span class="cap-k unseen">Takeaway</span> 地图把简短目标补全成可执行导航</h4>
             <p>
-              这些实验首先验证了未知布局中的地图更新、可达边界判断和目标语义搜索。新的 LuxiNav 路线不再把它们作为孤立算法展示，而是将其纳入统一接口：
-              语义图承担长期空间记忆，点云解释器补充几何约束，模型滚动选择子目标，最后由 Action Bridge 和陆图规划器完成真实执行。
+              长指令直接提供路线，而“找椅子”只提供目标。陆图模块加入后，语义地图负责记录“已经看过哪里、目标可能在哪里”，点云解释器补充距离、障碍与可通行方向，
+              模型据此滚动选择搜索子目标；最后由 Action Bridge 和陆图规划器完成真实路径、避障、接近与停止，从而用更少的人类先验完成任务。
             </p>
           </div>
         </div>
