@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>具身智能成果展示</title>
+    <title>LuxiNav · 具身智能导航成果</title>
     <style>
       :root {
         color-scheme: light;
@@ -781,6 +781,144 @@
         line-height: 1.6;
       }
 
+      .tech-loop {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 28px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .loop-step {
+        --tone: var(--accent);
+        position: relative;
+        min-height: 156px;
+        border: 1px solid var(--line);
+        border-top: 3px solid var(--tone);
+        border-radius: 8px;
+        background: #fff;
+        padding: 17px 15px 15px;
+      }
+
+      .loop-step.tone-blue {
+        --tone: var(--accent-3);
+      }
+
+      .loop-step.tone-purple {
+        --tone: #7456a4;
+      }
+
+      .loop-step.tone-orange {
+        --tone: var(--accent-2);
+      }
+
+      .loop-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 54px;
+        right: -23px;
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: 19px;
+      }
+
+      .loop-step .num {
+        color: var(--tone);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .loop-step strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .loop-step span {
+        display: block;
+        margin-top: 9px;
+        color: var(--muted);
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+
+      .feedback-rail {
+        max-width: 900px;
+        margin: 14px auto 32px;
+        border: 1px solid #c8ded7;
+        border-left: 4px solid var(--accent);
+        background: var(--accent-bg);
+        color: var(--accent);
+        padding: 10px 16px;
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 650;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      .tech-detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 900px;
+        margin: 0 auto 42px;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+
+      .tech-detail {
+        padding: 24px 24px 26px;
+      }
+
+      .tech-detail + .tech-detail {
+        border-left: 1px solid var(--line-strong);
+      }
+
+      .tech-detail .kicker {
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .tech-detail h3 {
+        margin-top: 9px;
+        font-size: 16px;
+      }
+
+      .tech-detail p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.65;
+      }
+
+      .research-intro {
+        max-width: 760px;
+        margin: 0 auto 28px;
+        text-align: center;
+      }
+
+      .research-intro .eyebrow {
+        margin-bottom: 9px;
+      }
+
+      .research-intro h3 {
+        font-family: var(--serif);
+        font-size: 24px;
+      }
+
+      .research-intro p {
+        margin: 12px auto 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
       footer {
         border-top: 1px solid var(--line);
         padding: 46px 0 64px;
@@ -819,8 +957,31 @@
         .storyline,
         .timeline,
         .demo-split,
-        .mapping-grid {
+        .mapping-grid,
+        .tech-loop,
+        .tech-detail-grid {
           grid-template-columns: 1fr;
+        }
+
+        .tech-loop {
+          gap: 24px;
+        }
+
+        .loop-step {
+          min-height: 0;
+        }
+
+        .loop-step:not(:last-child)::after {
+          content: "↓";
+          top: auto;
+          right: 50%;
+          bottom: -25px;
+          transform: translateX(50%);
+        }
+
+        .tech-detail + .tech-detail {
+          border-top: 1px solid var(--line-strong);
+          border-left: 0;
         }
 
         .mapping-grid .fig:first-child {
@@ -859,19 +1020,19 @@
     <header>
       <div class="wrap">
         <div class="eyebrow">Embodied AI · Navigation Stack</div>
-        <h1>从纯视觉导航到 <em>建图融合</em> 的具身智能路线</h1>
+        <h1>LuxiNav：从纯视觉导航到 <em>地图融合闭环</em></h1>
         <p class="tagline">
           我们的导航能力不是一次性做出来的：先在仿真环境里验证长指令和跨区域路线理解；再把纯视觉方案放到真实机器人上验证落地；
-          随后补上建图与定位模块，给机器人稳定的空间底座；最后探索“地图 + 模型”的语义导航闭环。
+          随后补上建图、定位与运动规划能力，最终把视觉、语义地图、点云解释和陆图执行连接成 LuxiNav 在线决策闭环。
         </p>
         <div class="byline"><b>Go2 Embodied Agent</b> · Customer Demo</div>
         <div class="links">
           <a class="lnk solid" href="#sim">View demos</a>
           <a class="lnk" href="#method">System overview</a>
           <a class="lnk" href="#mapping">Mapping</a>
-          <a class="lnk" href="#generalization">Navigation</a>
+          <a class="lnk" href="#generalization">LuxiNav</a>
         </div>
-        <div class="demo-tag">A staged roadmap: vision-only → simulation → mapping → map-aware model navigation</div>
+        <div class="demo-tag">A staged roadmap: simulation → vision-only robot → mapping → LuxiNav closed loop</div>
 
         <div class="teaser">
           <figure>
@@ -910,7 +1071,7 @@
           </div>
         </div>
         <div class="keynote">
-          <b>叙事主线：</b>仿真环境先验证长指令可泛化；真实场景再证明纯视觉具身控制能落地；建图模块补上稳定定位和空间表达；最后的 Luxi-Nav2.0 探索展示地图与模型结合后的语义导航方向。
+          <b>叙事主线：</b>仿真环境先验证长指令可泛化；真实场景再证明纯视觉具身控制能落地；建图模块补上稳定定位和空间表达；最终由 LuxiNav 把多模态理解、语义地图、点云解释与陆图执行接成完整闭环。
         </div>
       </div>
     </section>
@@ -921,20 +1082,20 @@
           <div class="eyebrow">Roadmap</div>
           <h2>一条逐步增强的导航路线</h2>
           <p>
-            每个章节对应一个明确目的：先在仿真里验证长指令路线理解，再上真实机器人证明纯视觉控制落地，然后用建图模块补齐空间底座，最后探索地图与模型融合。
+            每个章节对应一个明确目的：先在仿真里验证长指令路线理解，再上真实机器人证明纯视觉控制落地，然后用建图模块补齐空间底座，最后形成 LuxiNav 的在线技术闭环。
           </p>
         </div>
         <div class="storyline">
           <div class="story"><b>Stage 01</b><strong>仿真长指令验证</strong><span>目的：在可控环境里验证跨房间、跨区域的路线理解。</span></div>
           <div class="story"><b>Stage 02</b><strong>纯视觉真实控制</strong><span>目的：证明机器人只靠语言和视觉也能完成连续任务。</span></div>
           <div class="story"><b>Stage 03</b><strong>建图与定位模块</strong><span>目的：为导航提供稳定地图、位姿和路径规划接口。</span></div>
-          <div class="story"><b>Stage 04</b><strong>地图 + 模型探索</strong><span>目的：让模型在地图底座上做语义目标搜索和探索决策。</span></div>
+          <div class="story"><b>Stage 04</b><strong>LuxiNav 技术闭环</strong><span>目的：让模型负责语义理解和子目标，让陆图负责规划、安全执行与状态回传。</span></div>
         </div>
         <div class="keynote">
           <b>Evolution:</b> long-instruction simulation
           <span class="arr">→</span> real-world vision-only control
           <span class="arr">→</span> mapping and localization
-          <span class="arr">→</span> map-aware vision-language navigation.
+          <span class="arr">→</span> LuxiNav multimodal decision and map-based execution.
         </div>
       </div>
     </section>
@@ -1051,7 +1212,7 @@
               </div>
             </div>
             <div class="module-flow">
-              sensor / vision → map & localization → planning target → Go2 motion control
+              sensor / vision → map &amp; localization → planning target → Go2 motion control
             </div>
           </div>
         </div>
@@ -1112,7 +1273,7 @@
         </div>
 
         <div class="keynote">
-          <b>下一步：</b>拓展导航功能，接入路径规划、自主导航、避障、局部/全局路径规划等能力；与机器人底层运动控制分层，为机器狗、小车、无人机等不同载体提供可复用的导航模块。
+          <b>向 LuxiNav 汇合：</b>陆图不再只是独立建图工具。它输出的语义地图、点云结构、机器人位姿和规划接口，将进入 LuxiNav 的在线上下文；上层负责理解任务和生成子目标，陆图负责路径、避障、控制与真实状态回传。
         </div>
       </div>
     </section>
@@ -1120,42 +1281,107 @@
     <section id="generalization" class="alt">
       <div class="wrap">
         <div class="head">
-          <div class="eyebrow">Research exploration · map + model</div>
-          <h2>研究探索：把建图结果交给模型做语义决策</h2>
+          <div class="eyebrow">Stage 04 · LuxiNav technical closed loop</div>
+          <h2>LuxiNav：把多模态理解与陆图执行连接起来</h2>
           <p>
-            最后一阶段面向未来：地图不只是给传统路径规划使用，也可以成为视觉语言模型的空间上下文。Luxi-Nav2.0 展示的是在地图与视觉共同约束下，
-            模型如何围绕椅子、马桶、床等语义目标选择探索方向，并把“下一步去哪儿看”转化成可执行的导航目标。
+            前三阶段沉淀的长指令理解、真实视觉控制和陆图能力，在这里被组织成同一套在线系统。LuxiNav 让模型负责理解任务、维护上下文和选择子目标，
+            再通过 Action Bridge 把短期动作序列转换成陆图可执行的目标点与朝向，由规划器完成路径、避障、运动控制和安全停止。
           </p>
         </div>
         <div class="capband">
-          <div class="cap-lead"><span class="cap-k unseen">Exploration</span> Map-aware vision-language frontier navigation</div>
-          <div class="cap-io"><b>in:</b> spatial map + target object + visual observation <span class="arr">→</span> <b>out:</b> semantic frontier selection, object seeking, navigation target proposal</div>
-          <div class="cap-io"><b>loop:</b> update explored map <span class="arr">→</span> score candidate frontiers with VLM <span class="arr">→</span> move toward the most promising area</div>
+          <div class="cap-lead"><span class="cap-k unseen">LuxiNav</span> Multimodal reasoning with map-based execution</div>
+          <div class="cap-io"><b>in:</b> language + RGB / history + 2D semantic map + 360° point cloud + pose / state</div>
+          <div class="cap-io"><b>reasoning:</b> shared visual representation + point-cloud interpreter + CoT <span class="arr">→</span> short action sequence</div>
+          <div class="cap-io"><b>execution:</b> Action Bridge <span class="arr">→</span> relative goal &amp; heading <span class="arr">→</span> map planner <span class="arr">→</span> robot feedback</div>
+        </div>
+
+        <div class="tech-loop" aria-label="LuxiNav technical closed loop">
+          <div class="loop-step tone-blue">
+            <div class="num">01 / OBSERVE</div>
+            <strong>多模态观测</strong>
+            <span>汇集语言指令、RGB 历史帧、语义地图、点云和 Pose / 状态。</span>
+          </div>
+          <div class="loop-step">
+            <div class="num">02 / REPRESENT</div>
+            <strong>共享空间表达</strong>
+            <span>图像与语义地图共享视觉编码；点云解释器补充距离、障碍和方向。</span>
+          </div>
+          <div class="loop-step tone-purple">
+            <div class="num">03 / REASON</div>
+            <strong>CoT 在线决策</strong>
+            <span>融合当前观测、地图记忆和历史动作，滚动输出短期 action sequence。</span>
+          </div>
+          <div class="loop-step tone-orange">
+            <div class="num">04 / BRIDGE</div>
+            <strong>动作桥接</strong>
+            <span>解析和模拟动作序列，融合终点与朝向，生成相对导航目标。</span>
+          </div>
+          <div class="loop-step">
+            <div class="num">05 / EXECUTE</div>
+            <strong>陆图规划执行</strong>
+            <span>完成路径规划、避障和运动控制，并判断接近目标、阻塞与停止。</span>
+          </div>
+        </div>
+
+        <div class="feedback-rail">
+          ← 位姿、地图变化、障碍、目标距离、阻塞原因和停止状态持续回流，进入下一轮在线上下文
+        </div>
+
+        <div class="tech-detail-grid">
+          <article class="tech-detail">
+            <div class="kicker">Input alignment</div>
+            <h3>先把不同传感器变成同一份上下文</h3>
+            <p>
+              统一相机、雷达、机器人和地图的时间戳与坐标系，过滤异常帧并缓存历史观测。输出不是彼此分离的数据流，而是一份可被地图模块和决策模块共同消费的同步观测包。
+            </p>
+          </article>
+          <article class="tech-detail">
+            <div class="kicker">Spatial memory</div>
+            <h3>让地图和点云成为模型能理解的空间记忆</h3>
+            <p>
+              图像与 2D 语义地图共享 Encoder / Projector，以一致的视觉表示进入 LLM；点云解释器则联合语义图计算目标方位、最近障碍、可通行空间和关键距离，再生成结构化文本补充空间关系。
+            </p>
+          </article>
+          <article class="tech-detail">
+            <div class="kicker">Reliable execution</div>
+            <h3>模型决定意图，陆图保证动作真正落地</h3>
+            <p>
+              LLM 输出短期动作序列，Action Bridge 负责解析、轨迹模拟和目标融合；陆图规划器决定真实路径与速度。每轮执行结果都会回传，任务完成时停止，发生阻塞时重新修正子目标。
+            </p>
+          </article>
+        </div>
+
+        <div class="research-intro">
+          <div class="eyebrow">Earlier research evidence · unseen environments</div>
+          <h3>陌生环境寻物：先验证地图驱动的语义探索</h3>
+          <p>
+            在完整技术闭环形成之前，我们先用陌生 Habitat 环境验证一个关键问题：机器人能否一边更新已探索地图，一边根据“椅子、马桶、床”等目标语义选择更值得前往的区域。
+          </p>
         </div>
         <div class="gallery">
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_163681ff-845b-4997-b3fe-66f1d91b030g.gif" alt="Luxi-Nav2.0 finding a chair in an unseen Habitat environment"></div>
-            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_163681ff-845b-4997-b3fe-66f1d91b030g.gif" alt="Finding a chair in an unseen Habitat environment"></div>
+            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_91781947-3dd2-496b-a719-eb73affbd1fg.gif" alt="Luxi-Nav2.0 finding a toilet with vision-language navigation"></div>
-            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_91781947-3dd2-496b-a719-eb73affbd1fg.gif" alt="Finding a toilet with semantic map navigation"></div>
+            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_9c5340e7-ee00-4e8b-b24e-01ec32b5c31g.gif" alt="Luxi-Nav2.0 finding a toilet in a novel scene"></div>
-            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_9c5340e7-ee00-4e8b-b24e-01ec32b5c31g.gif" alt="Finding a toilet in a novel scene"></div>
+            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_f917c1c0-c49f-45c2-87c3-d0fa0c6fddeg.gif" alt="Luxi-Nav2.0 finding a bed in a novel scene"></div>
-            <figcaption class="cap"><span class="n">Luxi-Nav2.0 · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
+            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_f917c1c0-c49f-45c2-87c3-d0fa0c6fddeg.gif" alt="Finding a bed in a novel scene"></div>
+            <figcaption class="cap"><span class="n">陌生环境寻物 · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
           </figure>
         </div>
         <div class="desc span2" style="max-width:900px;margin:24px auto 0">
           <div class="body">
-            <h4><span class="cap-k unseen">Takeaway</span> 建图为空间底座，模型做语义决策</h4>
+            <h4><span class="cap-k unseen">Takeaway</span> 早期寻物探索成为 LuxiNav 的语义决策能力来源</h4>
             <p>
-              Luxi-Nav2.0 方向强调在未知布局中利用地图记录已探索区域和可达边界，再让视觉语言模型根据目标语义判断哪些区域更值得前往。
-              它不是替代真实机器人导航，而是展示建图模块未来接入模型决策后的研究空间：底层负责稳定定位与路径执行，上层负责语义理解与探索策略。
+              这些实验首先验证了未知布局中的地图更新、可达边界判断和目标语义搜索。新的 LuxiNav 路线不再把它们作为孤立算法展示，而是将其纳入统一接口：
+              语义图承担长期空间记忆，点云解释器补充几何约束，模型滚动选择子目标，最后由 Action Bridge 和陆图规划器完成真实执行。
             </p>
           </div>
         </div>
@@ -1164,7 +1390,7 @@
 
     <footer>
       <div class="wrap">
-        <div class="fin">Local demo page · <code>index.html</code></div>
+        <div class="fin">LuxiNav · Embodied navigation roadmap</div>
       </div>
     </footer>
   </body>
