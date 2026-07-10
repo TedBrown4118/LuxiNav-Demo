@@ -742,6 +742,45 @@
         line-height: 1.7;
       }
 
+      .module-stack {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .module-item {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--bg);
+        padding: 13px 14px;
+      }
+
+      .module-item b {
+        display: block;
+        color: var(--ink);
+        font-size: 14px;
+      }
+
+      .module-item span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .module-flow {
+        margin-top: 14px;
+        border-left: 3px solid var(--accent);
+        background: var(--accent-bg);
+        border-radius: 0 8px 8px 0;
+        color: var(--ink-soft);
+        padding: 12px 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
       footer {
         border-top: 1px solid var(--line);
         padding: 46px 0 64px;
@@ -993,15 +1032,27 @@
             <figcaption class="cap"><span class="n">陆图系统 · Go2 模块功能演示</span><span class="e">Lucid Atlas · 2m20s</span></figcaption>
           </figure>
           <div class="demo-note">
-            <h3>把地图、定位和机器人视角放进同一个演示闭环</h3>
+            <h3>陆图系统的三个核心子模块</h3>
             <p>
-              这段视频展示陆图系统在 Go2 实机上的模块功能：上方呈现实时构建/加载的空间地图，下方同步展示机器人在真实环境中的运动视角，用来说明地图结果如何服务于后续定位、路径规划和模型决策。
+              这段 Go2 实机演示把陆图系统的运行链路放在同一画面中：上方是地图与位姿状态，下方是机器人现场视角，用来展示感知、建图、运动规划控制三类能力如何连续工作。
             </p>
-            <ul>
-              <li>展示点云地图与机器人现场画面的同步关系。</li>
-              <li>验证建图模块可以为机器人提供可复用的空间表达。</li>
-              <li>为后续 Luxi-Nav2.0 的“地图 + 模型”语义导航提供底层输入。</li>
-            </ul>
+            <div class="module-stack">
+              <div class="module-item">
+                <b>01 感知模块</b>
+                <span>接入 Go2 现场传感器与视觉画面，持续获取环境观测、机器人运动状态和局部空间线索，为定位与建图提供实时输入。</span>
+              </div>
+              <div class="module-item">
+                <b>02 建图模块</b>
+                <span>将感知数据融合为可复用的空间地图，支持点云地图、栅格/体素表达和机器人位姿匹配，让系统知道“我在哪里、周围是什么结构”。</span>
+              </div>
+              <div class="module-item">
+                <b>03 运动规划与控制</b>
+                <span>基于地图和当前位姿生成可执行的导航目标与运动指令，连接上层任务决策和底层机器人控制，支撑路径规划、避障和目标到达。</span>
+              </div>
+            </div>
+            <div class="module-flow">
+              sensor / vision → map & localization → planning target → Go2 motion control
+            </div>
           </div>
         </div>
 
