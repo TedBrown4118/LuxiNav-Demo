@@ -789,6 +789,51 @@
         margin: 0 auto;
       }
 
+      .architecture-figure {
+        max-width: 900px;
+        margin: 0 auto 32px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .architecture-scroll {
+        display: block;
+        overflow-x: auto;
+        background: #f8faf9;
+      }
+
+      .architecture-scroll img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .architecture-figure figcaption {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin: 0;
+        border-top: 1px solid var(--line);
+        padding: 12px 16px;
+        text-align: left;
+      }
+
+      .architecture-figure figcaption .n {
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .architecture-figure figcaption .e {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+        text-align: right;
+      }
+
       .loop-step {
         --tone: var(--accent);
         position: relative;
@@ -982,6 +1027,21 @@
         .tech-detail + .tech-detail {
           border-top: 1px solid var(--line-strong);
           border-left: 0;
+        }
+
+        .architecture-scroll img {
+          width: 760px;
+          max-width: none;
+        }
+
+        .architecture-figure figcaption {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .architecture-figure figcaption .e {
+          text-align: left;
         }
 
         .mapping-grid .fig:first-child {
@@ -1294,6 +1354,16 @@
           <div class="cap-io"><b>reasoning:</b> shared visual representation + point-cloud interpreter + CoT <span class="arr">→</span> short action sequence</div>
           <div class="cap-io"><b>execution:</b> Action Bridge <span class="arr">→</span> relative goal &amp; heading <span class="arr">→</span> map planner <span class="arr">→</span> robot feedback</div>
         </div>
+
+        <figure class="architecture-figure">
+          <a class="architecture-scroll" href="web-assets/luxinav-system-architecture.png" target="_blank" rel="noopener">
+            <img loading="lazy" src="web-assets/luxinav-system-architecture.png" alt="LuxiNav architecture connecting multimodal observations, shared visual encoding, point-cloud interpretation, LLM reasoning, Action Bridge, map planning, and robot execution">
+          </a>
+          <figcaption>
+            <span class="n">LuxiNav 系统架构 · 多模态理解与陆图执行</span>
+            <span class="e">observation → spatial representation → CoT → Action Bridge → planner → robot</span>
+          </figcaption>
+        </figure>
 
         <div class="tech-loop" aria-label="LuxiNav technical closed loop">
           <div class="loop-step tone-blue">
