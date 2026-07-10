@@ -655,26 +655,22 @@
 
       .mapping-grid {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
         max-width: 900px;
         margin: 0 auto;
-        align-items: stretch;
-      }
-
-      .mapping-grid .fig:first-child {
-        grid-row: span 2;
+        align-items: start;
       }
 
       .mapping-grid .media {
-        height: 100%;
-        aspect-ratio: auto;
-        min-height: 260px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        min-height: 0;
         background: #f7f8f4;
       }
 
       .mapping-grid .media img {
-        object-fit: cover;
+        object-fit: contain;
       }
 
       .format-row {
@@ -1044,10 +1040,6 @@
           text-align: left;
         }
 
-        .mapping-grid .fig:first-child {
-          grid-row: auto;
-        }
-
         .real-gallery .feature .media {
           height: auto;
           min-height: 0;
@@ -1312,10 +1304,6 @@
           <figure class="fig">
             <div class="media"><img loading="lazy" src="web-assets/mapping/map-pose-overlay.png" alt="Robot pose and corridor position overlaid on the map"></div>
             <figcaption class="cap"><span class="n">机器人位姿与方向识别</span><span class="e">map pose overlay</span></figcaption>
-          </figure>
-          <figure class="fig">
-            <div class="media"><img loading="lazy" src="web-assets/mapping/rgb-reconstruction-scene.png" alt="RGB scene used for 3D reconstruction"></div>
-            <figcaption class="cap"><span class="n">RGB 3D 重建输入场景</span><span class="e">RGB scene</span></figcaption>
           </figure>
           <figure class="fig">
             <div class="media"><img loading="lazy" src="web-assets/mapping/rgb-3d-reconstruction.png" alt="RGB 3D reconstruction preserving object positions and shapes"></div>
