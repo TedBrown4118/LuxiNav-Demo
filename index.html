@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LuxiNav · 具身智能导航成果</title>
+    <title>LucidNav · 具身智能导航成果</title>
+    <link rel="icon" type="image/png" href="web-assets/logo-luxitech-transparent.png">
     <style>
       :root {
         color-scheme: light;
@@ -403,6 +404,22 @@
         margin: 0 auto;
       }
 
+      .object-search-gallery {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .object-search-gallery .fig .cap {
+        display: block;
+        padding: 10px 12px;
+      }
+
+      .object-search-gallery .fig .cap .e {
+        display: block;
+        margin-top: 4px;
+        text-align: left;
+      }
+
       .real-gallery {
         display: grid;
         grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
@@ -450,7 +467,12 @@
         background: #f7f8f4;
       }
 
-      .media.navila {
+      .media.object-search {
+        aspect-ratio: 4 / 3;
+        background: #18211e;
+      }
+
+      .media.sim-wide {
         aspect-ratio: 960 / 293;
         background: #f7f8f4;
       }
@@ -470,7 +492,12 @@
         object-fit: contain;
       }
 
-      .media.navila img {
+      .media.object-search img {
+        object-fit: cover;
+        object-position: left center;
+      }
+
+      .media.sim-wide img {
         object-fit: contain;
       }
 
@@ -671,6 +698,14 @@
 
       .mapping-grid .media img {
         object-fit: contain;
+      }
+
+      .atlas-wordmark {
+        display: block;
+        width: min(430px, 88%);
+        height: auto;
+        margin: 0 auto 20px;
+        mix-blend-mode: multiply;
       }
 
       .format-row {
@@ -1061,6 +1096,11 @@
         .fig .cap .e {
           text-align: left;
         }
+
+        .object-search-gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+        }
       }
     </style>
   </head>
@@ -1072,19 +1112,19 @@
     <header>
       <div class="wrap">
         <div class="eyebrow">Embodied AI · Navigation Stack</div>
-        <h1>LuxiNav：从纯视觉导航到 <em>地图融合闭环</em></h1>
+        <h1>LucidNav：从纯视觉导航到 <em>地图融合闭环</em></h1>
         <p class="tagline">
           我们的导航能力不是一次性做出来的：先在仿真环境里验证长指令和跨区域路线理解；再把纯视觉方案放到真实机器人上验证落地；
-          随后补上建图、定位与运动规划能力，最终把视觉、语义地图、点云解释和陆图执行连接成 LuxiNav 在线决策闭环。
+          随后补上建图、定位与运动规划能力，最终把视觉、语义地图、点云解释和陆图执行连接成 LucidNav 在线决策闭环。
         </p>
-        <div class="byline"><b>Go2 Embodied Agent</b> · Customer Demo</div>
+        <div class="byline"><b>Embodied Navigation System</b> · Customer Demo</div>
         <div class="links">
           <a class="lnk solid" href="#sim">View demos</a>
           <a class="lnk" href="#method">System overview</a>
           <a class="lnk" href="#mapping">Mapping</a>
-          <a class="lnk" href="#generalization">LuxiNav</a>
+          <a class="lnk" href="#generalization">LucidNav</a>
         </div>
-        <div class="demo-tag">A staged roadmap: simulation → vision-only robot → mapping → LuxiNav closed loop</div>
+        <div class="demo-tag">A staged roadmap: simulation → vision-only robot → Lucid Atlas → LucidNav closed loop</div>
 
         <div class="teaser">
           <figure>
@@ -1123,7 +1163,7 @@
           </div>
         </div>
         <div class="keynote">
-          <b>叙事主线：</b>仿真环境先验证长指令可泛化；真实场景再证明纯视觉具身控制能落地；建图模块补上稳定定位和空间表达；最终由 LuxiNav 把多模态理解、语义地图、点云解释与陆图执行接成完整闭环。
+          <b>叙事主线：</b>仿真环境先验证长指令可泛化；真实场景再证明纯视觉具身控制能落地；陆图 Lucid Atlas 补上稳定定位和空间表达；最终由 LucidNav 把多模态理解、语义地图、点云解释与规划执行接成完整闭环。
         </div>
       </div>
     </section>
@@ -1134,20 +1174,20 @@
           <div class="eyebrow">Roadmap</div>
           <h2>一条逐步增强的导航路线</h2>
           <p>
-            每个章节对应一个明确目的：先在仿真里验证长指令路线理解，再上真实机器人证明纯视觉控制落地，然后用建图模块补齐空间底座，最后形成 LuxiNav 的在线技术闭环。
+            每个章节对应一个明确目的：先在仿真里验证长指令路线理解，再上真实机器人证明纯视觉控制落地，然后用陆图 Lucid Atlas 补齐空间底座，最后形成 LucidNav 的在线技术闭环。
           </p>
         </div>
         <div class="storyline">
           <div class="story"><b>Stage 01</b><strong>仿真长指令验证</strong><span>目的：在可控环境里验证跨房间、跨区域的路线理解。</span></div>
           <div class="story"><b>Stage 02</b><strong>纯视觉真实控制</strong><span>目的：证明机器人只靠语言和视觉也能完成连续任务。</span></div>
-          <div class="story"><b>Stage 03</b><strong>建图与定位模块</strong><span>目的：为导航提供稳定地图、位姿和路径规划接口。</span></div>
-          <div class="story"><b>Stage 04</b><strong>LuxiNav 技术闭环</strong><span>目的：让模型负责语义理解和子目标，让陆图负责规划、安全执行与状态回传。</span></div>
+          <div class="story"><b>Stage 03</b><strong>陆图 Lucid Atlas</strong><span>目的：以自研感知、建图、定位和规划能力提供稳定空间底座。</span></div>
+          <div class="story"><b>Stage 04</b><strong>LucidNav 技术闭环</strong><span>目的：让决策模块负责语义理解和子目标，让空间系统负责规划、安全执行与状态回传。</span></div>
         </div>
         <div class="keynote">
           <b>Evolution:</b> long-instruction simulation
           <span class="arr">→</span> real-world vision-only control
           <span class="arr">→</span> mapping and localization
-          <span class="arr">→</span> LuxiNav multimodal decision and map-based execution.
+          <span class="arr">→</span> LucidNav multimodal decision and map-based execution.
         </div>
       </div>
     </section>
@@ -1158,7 +1198,7 @@
           <div class="eyebrow">Stage 01 · simulation validation</div>
           <h2>仿真环境：验证长指令和跨区域导航</h2>
           <p>
-            第一阶段先在 Habitat / Luxi-Nav1.0 仿真环境里验证路线理解。仿真的目的，是在可控环境中系统性测试长指令、跨房间、跨区域导航，再把稳定能力迁移到真实机器人上。
+            第一阶段先在可控仿真环境里验证路线理解。这里系统性测试长指令、跨房间与跨区域导航，并通过统一任务接口记录动作、路径和停止结果，为后续真实机器人验证提供可复现的能力基线。
           </p>
         </div>
         <div class="capband">
@@ -1167,20 +1207,20 @@
         </div>
         <div class="gallery">
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/bedroom-corridor-dining-living-chair-door.gif" alt="Luxi-Nav1.0 long instruction navigation from bedroom to living room near chair and sliding door"></div>
-            <figcaption class="cap long"><span class="n">从卧室出门到走廊，转弯进入餐厅区域，经过餐桌到客厅，朝电视方向走，最后停在椅子和通向室外的滑门附近</span><span class="e">Luxi-Nav1.0 · bedroom → corridor → dining area → living room</span></figcaption>
+            <div class="media sim-wide"><img loading="lazy" src="web-assets/simulation-long-instruction/bedroom-corridor-dining-living-chair-door.gif" alt="Long-instruction navigation from bedroom to living room near a chair and sliding door"></div>
+            <figcaption class="cap long"><span class="n">从卧室出门到走廊，转弯进入餐厅区域，经过餐桌到客厅，朝电视方向走，最后停在椅子和通向室外的滑门附近</span><span class="e">long instruction · bedroom → corridor → dining area → living room</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/room-left-dining-living-coffee-table.gif" alt="Luxi-Nav1.0 navigation from current room through dining room into living room stopping near coffee table"></div>
-            <figcaption class="cap long"><span class="n">从当前房间出去，左转，经过餐厅进入客厅，停在咖啡桌旁边</span><span class="e">Luxi-Nav1.0 · room exit → left turn → dining room → coffee table</span></figcaption>
+            <div class="media sim-wide"><img loading="lazy" src="web-assets/simulation-long-instruction/room-left-dining-living-coffee-table.gif" alt="Long-instruction navigation through a dining room into a living room, stopping near a coffee table"></div>
+            <figcaption class="cap long"><span class="n">从当前房间出去，左转，经过餐厅进入客厅，停在咖啡桌旁边</span><span class="e">long instruction · room exit → left turn → dining room → coffee table</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/table-corner-kitchen-sink-shelf.gif" alt="Luxi-Nav1.0 long instruction navigation to table corner and into kitchen near small sink and shelf"></div>
-            <figcaption class="cap long"><span class="n">先到桌子的左远角，再从右侧门口进入厨房；炉灶在右边、冰箱在左边，继续往前走到左侧小水槽、右侧架子附近停下</span><span class="e">Luxi-Nav1.0 · table corner → kitchen → sink and shelf</span></figcaption>
+            <div class="media sim-wide"><img loading="lazy" src="web-assets/simulation-long-instruction/table-corner-kitchen-sink-shelf.gif" alt="Long-instruction navigation to a table corner and into a kitchen near a small sink and shelf"></div>
+            <figcaption class="cap long"><span class="n">先到桌子的左远角，再从右侧门口进入厨房；炉灶在右边、冰箱在左边，继续往前走到左侧小水槽、右侧架子附近停下</span><span class="e">long instruction · table corner → kitchen → sink and shelf</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media navila"><img loading="lazy" src="web-assets/navila/dining-table-kitchen-stove-sink.gif" alt="Luxi-Nav1.0 navigation through dining table and kitchen stopping near sink"></div>
-            <figcaption class="cap long"><span class="n">经过餐桌，继续往厨房走，穿过厨房，经过台面和炉灶，最后停在水槽附近</span><span class="e">Luxi-Nav1.0 · dining table → kitchen → counter and stove → sink</span></figcaption>
+            <div class="media sim-wide"><img loading="lazy" src="web-assets/simulation-long-instruction/dining-table-kitchen-stove-sink.gif" alt="Long-instruction navigation through a dining area and kitchen, stopping near a sink"></div>
+            <figcaption class="cap long"><span class="n">经过餐桌，继续往厨房走，穿过厨房，经过台面和炉灶，最后停在水槽附近</span><span class="e">long instruction · dining table → kitchen → counter and stove → sink</span></figcaption>
           </figure>
         </div>
       </div>
@@ -1226,14 +1266,15 @@
       <div class="wrap">
         <div class="head">
           <div class="eyebrow">Stage 03 · mapping foundation</div>
-          <h2>建图模块：补上长期导航需要的空间底座</h2>
+          <img class="atlas-wordmark" src="web-assets/branding/lucid-atlas-wordmark.png" alt="陆图 Lucid Atlas 商标">
+          <h2>补上长期导航需要的空间底座</h2>
           <p>
-            纯视觉方案可以启动闭环，但长期、稳定、可复用的导航需要地图和定位。因此我们加入“陆图”建图模块，为机器狗、无人机、轮式机器人等载体提供稠密 3D 地图与实时定位。
+            纯视觉方案可以启动闭环，但长期、稳定、可复用的导航还需要空间记忆和可靠执行。自研陆图 Lucid Atlas 将感知、建图定位与运动规划控制组织为连续链路，为不同机器人载体提供稠密 3D 地图、实时位姿与可执行路径。
           </p>
         </div>
 
         <div class="capband">
-          <div class="cap-lead"><span class="cap-k">Capability</span> Dense mapping, map matching, and robot localization</div>
+          <div class="cap-lead"><span class="cap-k">Lucid Atlas</span> Perception, mapping, localization, planning, and control</div>
           <div class="cap-io"><b>in:</b> LiDAR / RGB observations <span class="arr">→</span> <b>out:</b> PCD map, GLB / OctoMap / OccupancyGrid, robot pose, navigation-ready spatial context</div>
         </div>
 
@@ -1242,17 +1283,17 @@
             <div class="media">
               <video src="web-assets/videos/lutu-go2-demo.mp4" poster="web-assets/posters/lutu-go2-demo.jpg" controls muted loop playsinline preload="metadata"></video>
             </div>
-            <figcaption class="cap"><span class="n">陆图系统 · Go2 导航模块演示</span><span class="e">Lucid Atlas · 1m56s</span></figcaption>
+            <figcaption class="cap"><span class="n">陆图 Lucid Atlas · 实机导航模块演示</span><span class="e">perception → mapping → motion · 1m56s</span></figcaption>
           </figure>
           <div class="demo-note">
             <h3>陆图系统的三个核心子模块</h3>
             <p>
-              这段 Go2 实机演示把陆图系统的运行链路放在同一画面中：上方是地图与位姿状态，下方是机器人现场视角，用来展示感知、建图、运动规划控制三类能力如何连续工作。
+              这段实机演示把陆图系统的运行链路放在同一画面中：上方是地图与位姿状态，下方是机器人现场视角，用来展示感知、建图、运动规划控制三类能力如何连续工作。
             </p>
             <div class="module-stack">
               <div class="module-item">
                 <b>01 感知模块</b>
-                <span>接入 Go2 现场传感器与视觉画面，持续获取环境观测、机器人运动状态和局部空间线索，为定位与建图提供实时输入。</span>
+                <span>接入机器人现场传感器与视觉画面，持续获取环境观测、运动状态和局部空间线索，为定位与建图提供实时输入。</span>
               </div>
               <div class="module-item">
                 <b>02 建图模块</b>
@@ -1264,7 +1305,7 @@
               </div>
             </div>
             <div class="module-flow">
-              sensor / vision → map &amp; localization → planning target → Go2 motion control
+              sensor / vision → map &amp; localization → planning target → robot motion control
             </div>
           </div>
         </div>
@@ -1273,7 +1314,7 @@
           <div class="step">
             <span class="num">01</span>
             <h3>3D 地图创建</h3>
-            <p>已完成公司环境的雷达点云 PCD 建图，能够形成可用于定位与导航的稠密空间表示。</p>
+            <p>已完成真实室内环境的雷达点云 PCD 建图，能够形成可用于定位与导航的稠密空间表示。</p>
           </div>
           <div class="step">
             <span class="num">02</span>
@@ -1294,8 +1335,8 @@
 
         <div class="mapping-grid">
           <figure class="fig">
-            <div class="media"><img loading="lazy" src="web-assets/mapping/lidar-pcd-map.png" alt="Dense LiDAR PCD map of the company environment"></div>
-            <figcaption class="cap"><span class="n">稠密 3D 点云建图</span><span class="e">PCD · company map</span></figcaption>
+            <div class="media"><img loading="lazy" src="web-assets/mapping/lidar-pcd-map.png" alt="Dense LiDAR PCD map of a real indoor environment"></div>
+            <figcaption class="cap"><span class="n">稠密 3D 点云建图</span><span class="e">PCD · indoor map</span></figcaption>
           </figure>
           <figure class="fig">
             <div class="media"><img loading="lazy" src="web-assets/mapping/localization-map.png" alt="Robot localization result in a 2D map"></div>
@@ -1321,7 +1362,7 @@
         </div>
 
         <div class="keynote">
-          <b>向 LuxiNav 汇合：</b>陆图不再只是独立建图工具。它输出的语义地图、点云结构、机器人位姿和规划接口，将进入 LuxiNav 的在线上下文；上层负责理解任务和生成子目标，陆图负责路径、避障、控制与真实状态回传。
+          <b>向 LucidNav 汇合：</b>陆图不再只是独立建图工具。它输出的语义地图、点云结构、机器人位姿和规划接口，将进入 LucidNav 的在线上下文；上层负责理解任务和生成子目标，陆图负责路径、避障、控制与真实状态回传。
         </div>
       </div>
     </section>
@@ -1329,31 +1370,31 @@
     <section id="generalization" class="alt">
       <div class="wrap">
         <div class="head">
-          <div class="eyebrow">Stage 04 · LuxiNav technical closed loop</div>
-          <h2>LuxiNav：把多模态理解与陆图执行连接起来</h2>
+          <div class="eyebrow">Stage 04 · LucidNav technical closed loop</div>
+          <h2><strong>LucidNav</strong>：把多模态理解与陆图执行连接起来</h2>
           <p>
-            前三阶段沉淀的长指令理解、真实视觉控制和陆图能力，在这里被组织成同一套在线系统。LuxiNav 让模型负责理解任务、维护上下文和选择子目标，
+            前三阶段沉淀的长指令理解、真实视觉控制和陆图能力，在这里被组织成同一套在线系统。LucidNav 让决策模块负责理解任务、维护上下文和选择子目标，
             再通过 Action Bridge 把短期动作序列转换成陆图可执行的目标点与朝向，由规划器完成路径、避障、运动控制和安全停止。
           </p>
         </div>
         <div class="capband">
-          <div class="cap-lead"><span class="cap-k unseen">LuxiNav</span> Multimodal reasoning with map-based execution</div>
+          <div class="cap-lead"><span class="cap-k unseen">LucidNav</span> Multimodal reasoning with map-based execution</div>
           <div class="cap-io"><b>in:</b> language + RGB / history + 2D semantic map + 360° point cloud + pose / state</div>
           <div class="cap-io"><b>reasoning:</b> shared visual representation + point-cloud interpreter + CoT <span class="arr">→</span> short action sequence</div>
           <div class="cap-io"><b>execution:</b> Action Bridge <span class="arr">→</span> relative goal &amp; heading <span class="arr">→</span> map planner <span class="arr">→</span> robot feedback</div>
         </div>
 
         <figure class="architecture-figure">
-          <a class="architecture-scroll" href="web-assets/luxinav-system-architecture.png" target="_blank" rel="noopener">
-            <img loading="lazy" src="web-assets/luxinav-system-architecture.png" alt="LuxiNav architecture connecting multimodal observations, shared visual encoding, point-cloud interpretation, LLM reasoning, Action Bridge, map planning, and robot execution">
+          <a class="architecture-scroll" href="web-assets/lucidnav-system-architecture.png" target="_blank" rel="noopener">
+            <img loading="lazy" src="web-assets/lucidnav-system-architecture.png" alt="LucidNav architecture connecting multimodal observations, shared visual encoding, point-cloud interpretation, online reasoning, action bridging, map planning, and robot execution">
           </a>
           <figcaption>
-            <span class="n">LuxiNav 系统架构 · 多模态理解与陆图执行</span>
+            <span class="n">LucidNav 系统架构 · 多模态理解与陆图执行</span>
             <span class="e">observation → spatial representation → CoT → Action Bridge → planner → robot</span>
           </figcaption>
         </figure>
 
-        <div class="tech-loop" aria-label="LuxiNav technical closed loop">
+        <div class="tech-loop" aria-label="LucidNav technical closed loop">
           <div class="loop-step tone-blue">
             <div class="num">01 / OBSERVE</div>
             <strong>多模态观测</strong>
@@ -1413,26 +1454,26 @@
           <div class="eyebrow">Map-enabled task expansion · minimal prompt</div>
           <h3>从“照着路线走”到“只告诉它要找什么”</h3>
           <p>
-            加入陆图后，任务不再必须由人类描述完整路线。面对“找椅子、找马桶、找床”这类短提示，系统可以在陌生 Habitat 环境中持续记录已探索区域，
+            加入陆图后，任务不再必须由人类描述完整路线。面对“找椅子、找马桶、找床”这类短提示，系统可以在陌生仿真场景中持续记录已探索区域，
             将视觉目标与地图位置关联；目标尚未出现时主动选择更值得搜索的方向，发现目标后再规划接近路线并完成停止。
           </p>
         </div>
-        <div class="gallery">
+        <div class="gallery object-search-gallery">
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_163681ff-845b-4997-b3fe-66f1d91b030g.gif" alt="Finding a chair in an unseen Habitat environment"></div>
-            <figcaption class="cap"><span class="n">短提示寻物 · 寻找椅子</span><span class="e">Habitat · chair</span></figcaption>
+            <div class="media object-search"><img loading="lazy" src="web-assets/simulation-object-search/chair-search.gif" alt="Finding a chair in an unseen simulated environment"></div>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找椅子</span><span class="e">unseen scene · chair</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_91781947-3dd2-496b-a719-eb73affbd1fg.gif" alt="Finding a toilet with semantic map navigation"></div>
-            <figcaption class="cap"><span class="n">短提示寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <div class="media object-search"><img loading="lazy" src="web-assets/simulation-object-search/toilet-search-a.gif" alt="Finding a toilet with semantic map navigation"></div>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找马桶</span><span class="e">unseen scene · toilet</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_9c5340e7-ee00-4e8b-b24e-01ec32b5c31g.gif" alt="Finding a toilet in a novel scene"></div>
-            <figcaption class="cap"><span class="n">短提示寻物 · 寻找马桶</span><span class="e">Habitat · toilet</span></figcaption>
+            <div class="media object-search"><img loading="lazy" src="web-assets/simulation-object-search/toilet-search-b.gif" alt="Finding a toilet in a novel simulated scene"></div>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找马桶</span><span class="e">unseen scene · toilet</span></figcaption>
           </figure>
           <figure class="fig">
-            <div class="media wide"><img loading="lazy" src="PR-GIF/Habitate/VLFM/img_v3_0212u_f917c1c0-c49f-45c2-87c3-d0fa0c6fddeg.gif" alt="Finding a bed in a novel scene"></div>
-            <figcaption class="cap"><span class="n">短提示寻物 · 寻找床</span><span class="e">Habitat · bed</span></figcaption>
+            <div class="media object-search"><img loading="lazy" src="web-assets/simulation-object-search/bed-search.gif" alt="Finding a bed in a novel simulated scene"></div>
+            <figcaption class="cap"><span class="n">短提示寻物 · 寻找床</span><span class="e">unseen scene · bed</span></figcaption>
           </figure>
         </div>
         <div class="desc span2" style="max-width:900px;margin:24px auto 0">
@@ -1449,7 +1490,7 @@
 
     <footer>
       <div class="wrap">
-        <div class="fin">LuxiNav · Embodied navigation roadmap</div>
+        <div class="fin">LucidNav · Embodied navigation roadmap</div>
       </div>
     </footer>
   </body>
